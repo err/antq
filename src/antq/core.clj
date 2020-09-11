@@ -103,6 +103,7 @@
 (defn -main
   [& args]
   (let [{:keys [options]} (cli/parse-opts args cli-options)
+        _ (prn :OPTIONS options :ARGS args)
         options (cond-> options
                   ;; Force "format" reporter when :error-format is specified
                   (some?  (:error-format options)) (assoc :reporter "format"))
